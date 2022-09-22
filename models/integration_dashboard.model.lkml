@@ -3,23 +3,57 @@ connection: "intergration_dashboard"
 # include all the views
 include: "/views/**/*.view"
 
-datagroup: integration_dashboard_default_datagroup {
+datagroup: integration_model_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-persist_with: integration_dashboard_default_datagroup
+persist_with: integration_model_default_datagroup
 
-explore: crm_data {}
+explore: google_analytics4 {
+  label: "Data Warehouse"
+  view_name: google_analytics4
 
-explore: faceook {}
+  join: crm_data {
+    type: left_outer
+    view_label: "CRM"
+    relationship: one_to_one
+    sql_on: ${crm_data.user_id} = ${google_analytics4.user_id} ;;
+  }
 
-explore: product_feed {}
+  join: backend_data {
+    type: left_outer
+    view_label: "Backend"
+    relationship: one_to_many
+    sql_on: ${crm_data.user_id} = ${backend_data.user_id} ;;
+  }
 
-explore: stock {}
+  join: facebook {
+    type: left_outer
+    view_label: "Facebook"
+    relationship: one_to_many
+    sql_on: ${crm_data.user_id} = ${facebook.user} ;;
+  }
 
-explore: google_analytics4 {}
+  join: product_feed {
+    type: left_outer
+    view_label: "Product Feed"
+    relationship: one_to_many
+    sql_on: ${product_feed.product_name} = ${google_analytics4.ep_event_label} ;;
+  }
 
-explore: backend_data {}
+  join: line_liff {
+    type: left_outer
+    view_label: "Line-Liff"
+    relationship: one_to_many
+    sql_on: ${crm_data.lineliff_id} = ${crm_data.lineliff_id} ;;
+  }
 
-explore: line_liff {}
+  join: stock {
+    type: left_outer
+    view_label: "stock"
+    relationship: one_to_one
+    sql_on: ${product_feed.sku} = ${stock.sku} ;;
+  }
+
+}
