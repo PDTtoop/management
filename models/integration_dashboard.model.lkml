@@ -17,7 +17,7 @@ explore: google_analytics4 {
   join: crm_data {
     type: left_outer
     view_label: "CRM"
-    relationship: one_to_one
+    relationship: one_to_many
     sql_on: ${crm_data.user_id} = ${google_analytics4.user_id} ;;
   }
 
