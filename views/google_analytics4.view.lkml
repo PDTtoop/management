@@ -38,6 +38,7 @@ view: google_analytics4 {
   dimension: user_id {
     type: string
     sql: ${TABLE}.User_ID ;;
+    drill_fields: [expand_detail*]
   }
 
   measure: total_event {
@@ -49,5 +50,9 @@ view: google_analytics4 {
   measure: count {
     type: count
     drill_fields: [event_name]
+  }
+
+  set: expand_detail {
+    fields: [user_id,line_liff.key_message]
   }
 }
