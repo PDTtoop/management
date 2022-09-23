@@ -46,7 +46,7 @@ explore: google_analytics4 {
     type: left_outer
     view_label: "Line-Liff"
     relationship: one_to_many
-    sql_on: ${crm_data.lineliff_id} = ${line_liff.lineliff_id}} ;;
+    sql_on: ${crm_data.lineliff_id} = ${line_liff.lineliff_id} ;;
   }
 
   join: stock {
