@@ -4,8 +4,11 @@ connection: "intergration_dashboard"
 include: "/views/**/*.view"
 
 datagroup: integration_model_default_datagroup {
+  label: "desired label"
+  description: "description string"
   sql_trigger: SELECT MAX(user_id) FROM google_analytics4;;
-  max_cache_age: "1 hour"
+  max_cache_age: "24 hour"
+  interval_trigger: "2 hours"
 }
 
 persist_with: integration_model_default_datagroup
