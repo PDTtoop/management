@@ -27,6 +27,11 @@ view: backend_data {
     sql: ${TABLE}.Product_Name ;;
   }
 
+  dimension: user_interaction_hit {
+    type: string
+    sql: ${TABLE}.user_interaction_hit ;;
+  }
+
   dimension: quanity {
     type: number
     sql: ${TABLE}.quanity ;;

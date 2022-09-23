@@ -28,7 +28,7 @@ explore: google_analytics4 {
     type: left_outer
     view_label: "Backend"
     relationship: many_to_one
-    sql_on: ${backend_data.user_id}=${crm_data.user_id}   ;;
+    sql_on: ${google_analytics4.user_interaction_hit}=${backend_data.user_interaction_hit}   ;;
   }
 
   join: facebook {
