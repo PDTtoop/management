@@ -41,10 +41,26 @@ view: google_analytics4 {
     drill_fields: [expand_detail*]
   }
 
+  dimension: client_session {
+    type: string
+    sql: ${TABLE}.client_session ;;
+  }
+
+  dimension: user_interaction_hit {
+    primary_key: yes
+    type: string
+    sql: ${TABLE}.user_interaction_hit ;;
+  }
+
   measure: total_event {
     type: sum
     sql: ${TABLE}.total_event ;;
     drill_fields: [event_name]
+  }
+
+  measure: hit_number {
+    type: sum
+    sql: ${TABLE}.hit_number ;;
   }
 
   measure: count {
