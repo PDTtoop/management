@@ -33,7 +33,7 @@ view: backend_data {
   }
 
   dimension: transaction_no_ {
-    type: number
+    type: string
     sql: ${TABLE}.Transaction_No_ ;;
   }
 
