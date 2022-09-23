@@ -3,6 +3,8 @@ view: google_analytics4 {
     ;;
 
   dimension_group: date {
+    label: "Date"
+    description: "วันที่"
     type: time
     timeframes: [
       raw,
@@ -32,14 +34,16 @@ view: google_analytics4 {
     sql: ${TABLE}.ga_session_id ;;
   }
 
-  dimension: total_event {
-    type: number
-    sql: ${TABLE}.total_event ;;
-  }
 
   dimension: user_id {
     type: string
     sql: ${TABLE}.User_ID ;;
+  }
+
+  measure: total_event {
+    type: sum
+    sql: ${TABLE}.total_event ;;
+    drill_fields: [event_name]
   }
 
   measure: count {
