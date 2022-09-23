@@ -4,7 +4,7 @@ connection: "intergration_dashboard"
 include: "/views/**/*.view"
 
 datagroup: integration_model_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(user_id) FROM google_analytics4;;
   max_cache_age: "1 hour"
 }
 
