@@ -20,36 +20,36 @@ explore: google_analytics4 {
   join: crm_data {
     type: left_outer
     view_label: "CRM"
-    relationship: one_to_many
-    sql_on: ${crm_data.user_id} = ${google_analytics4.user_id} ;;
+    relationship: many_to_one
+    sql_on: ${google_analytics4.user_id} =${crm_data.user_id} ;;
   }
 
   join: backend_data {
     type: left_outer
     view_label: "Backend"
-    relationship: one_to_many
-    sql_on: ${crm_data.user_id} = ${backend_data.user_id} ;;
+    relationship: many_to_one
+    sql_on: ${backend_data.user_id}=${crm_data.user_id}   ;;
   }
 
   join: facebook {
     type: left_outer
     view_label: "Facebook"
-    relationship: one_to_many
-    sql_on: ${crm_data.user_id} = ${facebook.user} ;;
+    relationship: many_to_one
+    sql_on: ${facebook.user}=  ${crm_data.user_id} ;;
   }
 
   join: product_feed {
     type: left_outer
     view_label: "Product Feed"
-    relationship: one_to_many
-    sql_on: ${product_feed.product_name} = ${google_analytics4.ep_event_label} ;;
+    relationship: many_to_one
+    sql_on: ${google_analytics4.ep_event_label} = ${product_feed.product_name}  ;;
   }
 
   join: line_liff {
     type: left_outer
     view_label: "Line-Liff"
-    relationship: one_to_many
-    sql_on: ${crm_data.lineliff_id} = ${line_liff.lineliff_id} ;;
+    relationship: many_to_one
+    sql_on: ${line_liff.lineliff_id} = ${crm_data.lineliff_id};;
   }
 
   join: stock {
