@@ -6,9 +6,9 @@ include: "/views/**/*.view"
 datagroup: integration_model_default_datagroup {
   label: "desired label"
   description: "description string"
-  sql_trigger: SELECT MAX(user_id) FROM google_analytics4;;
+  # sql_trigger: SELECT MAX(user_id) FROM google_analytics4;;
   max_cache_age: "24 hour"
-  interval_trigger: "2 hours"
+  interval_trigger: "6 hours"
 }
 
 persist_with: integration_model_default_datagroup
