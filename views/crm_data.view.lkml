@@ -18,7 +18,7 @@ view: crm_data {
     action: {
       label: "Send Emails"
       url: "https://segment.com"
-      icon_url: "https://looker.com/favicon.ico"
+      icon_url: "https://seeklogo.com/images/S/segment-logo-FCBB33F58E-seeklogo.com.png"
       form_url: "https://example.com/ping/{{ value }}/form.json"
       param: {
         name: "name string"
