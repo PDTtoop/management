@@ -14,6 +14,33 @@ view: crm_data {
   }
 
   dimension: email {
+    primary_key: yes
+    action: {
+      label: "Send Emails"
+      url: "https://segment.com"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "name string"
+        value: "value string"
+      }
+      form_param: {
+        name: "name string"
+        type: string
+        label: "possibly-localized-string"
+        option: {
+          name: "name string"
+          label: "possibly-localized-string"
+        }
+        required: yes
+        description: "possibly-localized-string"
+        default: "string"
+      }
+      user_attribute_param: {
+        user_attribute: project_access
+        name: "name_for_json_payload"
+      }
+    }
     type: string
     sql: ${TABLE}.email ;;
   }
