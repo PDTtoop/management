@@ -42,30 +42,37 @@ view: crm_data {
       }
     }
     action: {
-      label: "Send Emails 2 "
-      url: "https://segment.com"
-      icon_url: "https://seeklogo.com/images/S/segment-logo-FCBB33F58E-seeklogo.com.png"
-      form_url: "https://example.com/ping/{{ value }}/form.json"
-      param: {
-        name: "name string"
-        value: "value string"
+      label: "SendGrid API"
+      url: "https://api.sendgrid.com/v3/mail/send"
+      icon_url: "https://d15tnd3q55f8nl.cloudfront.net/static/SG_Twilio_Lockup_Social-56f3cfd2f6b0c62422980170d57fac64.png"
+
+      form_param: {
+        name: "to"
+        label: "To Email Address"
+        default: "{{ value }}"
+        description: "e.g. test@example.com"
+        type: string
+        required: yes
       }
       form_param: {
-        name: "name string"
+        name: "from"
+        label: "from Email Address"
+        default: "{{ value }}"
+        description: "e.g. test@example.com"
         type: string
-        label: "possibly-localized-string"
-        option: {
-          name: "name string"
-          label: "possibly-localized-string"
-        }
+        required: no
+      }
+      form_param: {
+        name: "subject"
+        label: "Subject Email"
         required: yes
-        description: "possibly-localized-string"
-        default: "string"
       }
-      user_attribute_param: {
-        user_attribute: project_access
-        name: "name_for_json_payload"
+      form_param: {
+        name: "body"
+        type: textarea
+        required: yes
       }
+
     }
 
     type: string
