@@ -90,9 +90,9 @@ view: crm_data {
   }
 
   dimension: google_auth_id {
+    tags: ["phone"]
     type: string
     sql: ${TABLE}.google_auth_id ;;
-    tags: ["phone"]
   }
 
   dimension: lastname {
@@ -118,8 +118,8 @@ view: crm_data {
   dimension: telephone {
     type: string
     sql: ${TABLE}.telephone ;;
-    tags: ["phone"]
   }
+
 
   dimension: user_id {
     type: string
