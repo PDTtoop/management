@@ -115,7 +115,7 @@ view: crm_data {
   }
 
   dimension: telephone {
-    type: number
+    type: string
     sql: ${TABLE}.telephone ;;
     tags: ["phone"]
   }
