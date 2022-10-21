@@ -90,7 +90,6 @@ view: crm_data {
   }
 
   dimension: google_auth_id {
-    tags: ["phone"]
     type: string
     sql: ${TABLE}.google_auth_id ;;
   }
@@ -116,6 +115,7 @@ view: crm_data {
   }
 
   dimension: telephone {
+    tags: ["phone"]
     type: string
     sql: ${TABLE}.telephone ;;
   }
