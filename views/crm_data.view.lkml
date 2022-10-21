@@ -117,6 +117,7 @@ view: crm_data {
   dimension: telephone {
     type: number
     sql: ${TABLE}.telephone ;;
+    tags: ["phone"]
   }
 
   dimension: user_id {
