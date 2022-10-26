@@ -1,4 +1,4 @@
-connection: "intergration_dashboard"
+connection: "intergration_dashboards"
 
 # include all the views
 include: "/views/**/*.view"
