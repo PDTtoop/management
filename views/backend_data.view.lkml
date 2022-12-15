@@ -56,7 +56,7 @@ view: backend_data {
 
 
   measure: quantity {
-    type: number
+    type: sum
     sql: ${TABLE}.quanity ;;
   }
 
