@@ -48,6 +48,12 @@ view: backend_data {
     sql: ${TABLE}.quanity ;;
   }
 
+
+  measure: total_quantity {
+    type: sum
+    sql: ${TABLE}.quanity ;;
+  }
+
   measure: total_sale_price {
     type: sum
     sql: ${product_feed.sale_price} ;;
