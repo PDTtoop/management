@@ -53,9 +53,11 @@ view: backend_data {
     drill_fields: [product_name]
   }
 
-  measure: total_sale{
-    type: sum
-    sql: ${quantity} ;;
+  measure: total {
+
+    sql: sum(${quantity}) over() ;;
+
   }
+
 
 }
