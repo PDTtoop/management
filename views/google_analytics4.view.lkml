@@ -41,6 +41,9 @@ view: google_analytics4 {
     drill_fields: [expand_detail*]
   }
 
+
+
+
   dimension: client_session {
     type: string
     sql: ${TABLE}.client_session ;;
@@ -50,6 +53,14 @@ view: google_analytics4 {
     primary_key: yes
     type: string
     sql: ${TABLE}.user_interaction_hit ;;
+  }
+
+  measure: unique_visitors {
+    label: "Unique Visitors"
+    type: count_distinct
+    description: "Uniqueness determined by user id"
+    view_label: "Visitors"
+    sql: ${user_id} ;;
   }
 
   measure: total_event {
