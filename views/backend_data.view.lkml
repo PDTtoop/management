@@ -43,11 +43,6 @@ view: backend_data {
     sql: ${TABLE}.UserId ;;
   }
 
-  dimension: quantity {
-    type: number
-    sql: ${TABLE}.quanity ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [product_name]
@@ -58,6 +53,13 @@ view: backend_data {
     sql: sum(${quantity}) over() ;;
 
   }
+
+
+  measure: quantity {
+    type: number
+    sql: ${TABLE}.quanity ;;
+  }
+
 
 
 }
