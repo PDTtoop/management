@@ -43,7 +43,7 @@ view: backend_data {
     sql: ${TABLE}.UserId ;;
   }
   measure: quantity {
-    type: number
+    type: sum
     sql: ${TABLE}.quanity ;;
   }
 
