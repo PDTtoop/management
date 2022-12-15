@@ -73,6 +73,11 @@ view: product_feed {
     sql: ${TABLE}.Type ;;
   }
 
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [product_name]
