@@ -43,20 +43,14 @@ view: backend_data {
     sql: ${TABLE}.UserId ;;
   }
 
-  measure: quantity {
+  dimension: quantity {
     type: number
     sql: ${TABLE}.quanity ;;
   }
 
-
   measure: total_quantity {
     type: number
     sql: sum(${TABLE}.quanity) ;;
-  }
-
-  measure: total_sale_price {
-    type: sum
-    sql: ${product_feed.sale_price} ;;
   }
 
   measure: count {

@@ -58,5 +58,33 @@ explore: google_analytics4 {
     relationship: one_to_one
     sql_on: ${product_feed.sku} = ${stock.sku} ;;
   }
+  }
 
-}
+  explore: backend_data {
+    label: "Transactions"
+    view_name: backend_data
+
+    join: product_feed{
+      type: left_outer
+      view_label: "Product Feed"
+      relationship: many_to_one
+      sql_on: ${backend_data.product_name}=${product_feed.product_name}  ;;
+    }
+
+    join: stock{
+      type: left_outer
+      view_label: "Stock"
+      relationship: many_to_one
+      sql_on: ${product_feed.sku}=${stock.sku}  ;;
+    }
+
+    join: crm_data {
+      type: left_outer
+      view_label: "CRM"
+      relationship: many_to_one
+      sql_on: ${backend_data.user_id} =${crm_data.user_id} ;;
+    }
+
+
+
+    }

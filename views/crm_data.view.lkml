@@ -13,6 +13,9 @@ view: crm_data {
     sql: ${TABLE}.country ;;
   }
 
+
+
+
   dimension: email {
     primary_key: yes
     action: {
@@ -100,20 +103,27 @@ view: crm_data {
     sql: ${TABLE}.Lastname ;;
   }
 
-  dimension: latitude {
-    type: number
-    sql: ${TABLE}.latitude ;;
+  dimension: client_la_long {
+    type: location
+    sql_latitude: ${TABLE}.latitude ;;
+    sql_longitude: ${TABLE}.longtitude ;;
   }
+
+
+# dimension: latitude {
+#     type: number
+#     sql: ${TABLE}.latitude ;;
+#   }
 
   dimension: lineliff_id {
     type: string
     sql: ${TABLE}.lineliff_id ;;
   }
 
-  dimension: longtitude {
-    type: number
-    sql: ${TABLE}.longtitude ;;
-  }
+  # dimension: longtitude {
+  #   type: number
+  #   sql: ${TABLE}.longtitude ;;
+  # }
 
   dimension: telephone {
     tags: ["phone"]

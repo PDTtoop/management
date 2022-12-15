@@ -43,10 +43,6 @@ view: product_feed {
     sql: ${TABLE}.Product_Name ;;
   }
 
-  dimension: sale_price {
-    type: number
-    sql: ${TABLE}.sale_price ;;
-  }
 
   dimension: season {
     type: number
@@ -73,6 +69,16 @@ view: product_feed {
     sql: ${TABLE}.Type ;;
   }
 
+  dimension: sale_price {
+    type: number
+    sql: ${TABLE}.sale_price ;;
+  }
+
+  measure: total_sale_price {
+    type: number
+    sql: sum(${TABLE}.sale_price) ;;
+    value_format_name: usd_0
+    }
 
   measure: count {
     type: count

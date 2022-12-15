@@ -42,8 +42,6 @@ view: google_analytics4 {
   }
 
 
-
-
   dimension: client_session {
     type: string
     sql: ${TABLE}.client_session ;;
@@ -55,11 +53,19 @@ view: google_analytics4 {
     sql: ${TABLE}.user_interaction_hit ;;
   }
 
+
+  dimension: is_purchase_event {
+    type: yesno
+    sql: ${event_name} = 'purchase' ;;
+  }
+
+
+
   measure: unique_visitors {
     label: "Unique Visitors"
     type: count_distinct
     description: "Uniqueness determined by user id"
-    view_label: "Visitors"
+  # view_label: "Visitors"
     sql: ${user_id} ;;
   }
 
@@ -72,6 +78,52 @@ view: google_analytics4 {
   measure: hit_number {
     type: sum
     sql: ${TABLE}.hit_number ;;
+  }
+
+  measure: all_sessions {
+    view_label: "Funnel View"
+    label: "(1) All Sessions"
+    type: count
+  }
+
+  measure: count_slide_or_later{
+    view_label: "Funnel View"
+    label: "(2) Browse or Later Sessions"
+    type: count
+    filters: {
+      field: event_name
+      value: "slide_content,selected,view_content,purchase,in_app_perchase"
+    }
+  }
+
+  measure: count_selected_or_later{
+    view_label: "Funnel View"
+    label: "(3) Select or Later Sessions"
+    type: count
+    filters: {
+      field: event_name
+      value: "selected,view_content,purchase,in_app_perchase"
+    }
+  }
+
+  measure: count_view_or_later{
+    view_label: "Funnel View"
+    label: "(4) View or Later Sessions"
+    type: count
+    filters: {
+      field: event_name
+      value: "view_content,purchase,in_app_perchase"
+    }
+  }
+
+  measure: count_purchase_or_later{
+    view_label: "Funnel View"
+    label: "(5) Purchase Sessions"
+    type: count
+    filters: {
+      field: event_name
+      value: "purchase,in_app_perchase"
+    }
   }
 
   measure: count {
