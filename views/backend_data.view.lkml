@@ -32,10 +32,6 @@ view: backend_data {
     sql: ${TABLE}.user_interaction_hit ;;
   }
 
-  dimension: quanity {
-    type: number
-    sql: ${TABLE}.quanity ;;
-  }
 
   dimension: transaction_no_ {
     type: string
@@ -47,8 +43,14 @@ view: backend_data {
     sql: ${TABLE}.UserId ;;
   }
 
+  measure: quanity {
+  type: number
+  sql: ${TABLE}.quanity ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [product_name]
   }
+
 }
