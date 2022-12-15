@@ -34,6 +34,7 @@ view: backend_data {
 
 
   dimension: transaction_no_ {
+    primary_key: yes
     type: string
     sql: ${TABLE}.Transaction_No_ ;;
   }
@@ -41,11 +42,6 @@ view: backend_data {
   dimension: user_id {
     type: string
     sql: ${TABLE}.UserId ;;
-  }
-
-  measure: quanity {
-  type: number
-  sql: ${TABLE}.quanity ;;
   }
 
   measure: count {
