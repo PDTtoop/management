@@ -50,8 +50,8 @@ view: backend_data {
 
 
   measure: total_quantity {
-    type: sum
-    sql: ${TABLE}.quanity ;;
+    type: number
+    sql: sum(${TABLE}.quanity) ;;
   }
 
   measure: total_sale_price {
