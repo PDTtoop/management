@@ -42,9 +42,15 @@ view: backend_data {
     type: string
     sql: ${TABLE}.UserId ;;
   }
+
   measure: quantity {
-    type: sum
+    type: number
     sql: ${TABLE}.quanity ;;
+  }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${product_feed.sale_price} ;;
   }
 
   measure: count {
@@ -53,11 +59,11 @@ view: backend_data {
   }
 
 
-  measure: total {
+  # measure: total {
 
-    sql: sum(${quantity}) over() ;;
+  #   sql: sum(${quantity}) over() ;;
 
-  }
+  # }
 
 
 
