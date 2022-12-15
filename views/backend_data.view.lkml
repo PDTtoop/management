@@ -34,7 +34,6 @@ view: backend_data {
 
 
   dimension: transaction_no_ {
-    primary_key: yes
     type: string
     sql: ${TABLE}.Transaction_No_ ;;
   }
