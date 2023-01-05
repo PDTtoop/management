@@ -1,5 +1,5 @@
 connection: "intergration_dashboards"
-
+#comment
 # include all the views.
 include: "/views/**/*.view"
 
