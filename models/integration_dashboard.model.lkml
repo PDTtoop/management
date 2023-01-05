@@ -1,6 +1,6 @@
 connection: "intergration_dashboards"
 
-# include all the views
+# include all the views.
 include: "/views/**/*.view"
 
 datagroup: integration_model_default_datagroup {
